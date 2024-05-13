@@ -8,5 +8,7 @@ _: {
     ./swww
     ./waybar
     ./wofi
+    ./ags
+    ./playerctl
   ];
 }

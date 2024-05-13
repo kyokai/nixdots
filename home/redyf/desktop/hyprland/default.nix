@@ -203,6 +203,8 @@ in {
       ];
 
       bind = [
+        "SUPER, Tab, exec, ags -t overview"
+        "SUPER, XF86Calculator, exec, ags -r 'recorder.start()'"
         "SUPER,Q,killactive,"
         "SUPER,M,exit,"
         "SUPER,S,togglefloating,"

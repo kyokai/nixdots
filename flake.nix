@@ -14,7 +14,10 @@
     nur.url = "github:nix-community/NUR";
     Neve.url = "github:redyf/Neve";
     disko.url = "github:nix-community/disko";
-
+    ags = {
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # SFMono w/ patches
     sf-mono-liga-src = {
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
