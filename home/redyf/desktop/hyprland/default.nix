@@ -197,6 +197,7 @@ in {
       };
 
       exec-once = [
+        "ags -b hypr"
         "autostart"
         "easyeffects --gapplication-service" # Starts easyeffects in the background
         "importGsettings"
