@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   imports = [
-    ./mpv.nix
-    ./obs.nix
-    ./rnnoise.nix
-    ./spicetify.nix
+   # ./mpv.nix
+   # ./obs.nix
+   # ./rnnoise.nix
+   # ./spicetify.nix
   ];
 
   home.packages = with pkgs; [
