@@ -4,5 +4,6 @@ _: {
     ./git
     ./http
     ./languages
+    ./media
   ];
 }
