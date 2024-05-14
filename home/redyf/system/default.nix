@@ -4,5 +4,6 @@ _: {
     ./fonts
     ./nix
     ./shell
+    ./dconf
   ];
 }
