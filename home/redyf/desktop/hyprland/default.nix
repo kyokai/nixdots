@@ -33,9 +33,9 @@ in {
       scripts=$config/scripts
 
       # Waybar
-      pkill waybar
-      $scripts/launch_waybar &
-      $scripts/tools/dynamic &
+      #pkill waybar
+      #$scripts/launch_waybar &
+      #$scripts/tools/dynamic &
 
       # Wallpaper
       swww kill
@@ -277,7 +277,7 @@ in {
         "SUPER,Print,exec,screenshot-edit"
         "SUPER,o,exec,obsidian"
         "SUPER SHIFT,C,exec,wallpaper"
-        "SUPER,z,exec,waybar"
+        #"SUPER,z,exec,waybar"
         # "SUPER,space,exec,bemenu-run"
         # "SUPER,space,exec, tofi-drun --drun-launch=true"
         "SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3"
@@ -367,7 +367,7 @@ in {
     "hypr/store/prev.txt".source = ./store/prev.txt;
     "hypr/store/latest_notif".source = ./store/latest_notif;
     "hypr/scripts/wall".source = ./scripts/wall;
-    "hypr/scripts/launch_waybar".source = ./scripts/launch_waybar;
+    #"hypr/scripts/launch_waybar".source = ./scripts/launch_waybar;
     "hypr/scripts/tools/dynamic".source = ./scripts/tools/dynamic;
     "hypr/scripts/tools/expand".source = ./scripts/tools/expand;
     "hypr/scripts/tools/notif".source = ./scripts/tools/notif;
