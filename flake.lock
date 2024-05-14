@@ -20,6 +20,26 @@
         "type": "github"
       }
     },
+    "ags": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1714991158,
+        "narHash": "sha256-QRtQD3YqbambczxavUUkRv7iGxoJ1J6e6mD20mZv3a4=",
+        "owner": "Aylur",
+        "repo": "ags",
+        "rev": "05e0f23534fa30c1db2a142664ee8f71e38db260",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Aylur",
+        "repo": "ags",
+        "type": "github"
+      }
+    },
     "devshell": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -470,6 +490,27 @@
         "type": "github"
       }
     },
+    "matugen": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": "systems_5"
+      },
+      "locked": {
+        "lastModified": 1715196623,
+        "narHash": "sha256-0e6UMq5XCzgCcByCie3YnrU1xDPCFiX8xlsqmoQMLE8=",
+        "owner": "InioX",
+        "repo": "matugen",
+        "rev": "9b146d8244c660ce88f4a20b05fcfaa7db3e5420",
+        "type": "github"
+      },
+      "original": {
+        "owner": "InioX",
+        "repo": "matugen",
+        "type": "github"
+      }
+    },
     "monolisa-script": {
       "flake": false,
       "locked": {
@@ -674,9 +715,11 @@
     "root": {
       "inputs": {
         "Neve": "Neve",
+        "ags": "ags",
         "disko": "disko",
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
+        "matugen": "matugen",
         "monolisa-script": "monolisa-script",
         "nixpkgs": "nixpkgs_5",
         "nur": "nur",
@@ -775,13 +818,28 @@
         "type": "github"
       }
     },
+    "systems_6": {
+      "locked": {
+        "lastModified": 1689347949,
+        "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "rev": "31732fcf5e8fea42e59c2488ad31a0e651500f68",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "type": "github"
+      }
+    },
     "waybar-hyprland": {
       "inputs": {
         "hyprcursor": "hyprcursor_2",
         "hyprlang": "hyprlang_2",
         "hyprwayland-scanner": "hyprwayland-scanner_2",
         "nixpkgs": "nixpkgs_6",
-        "systems": "systems_5",
+        "systems": "systems_6",
         "xdph": "xdph_2"
       },
       "locked": {
