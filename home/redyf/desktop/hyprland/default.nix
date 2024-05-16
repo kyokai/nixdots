@@ -17,6 +17,10 @@
   transparent_gray = "rgba(666666AA)";
   gsettings = "${pkgs.glib}/bin/gsettings";
   gnomeSchema = "org.gnome.desktop.interface";
+  playerctl = "${pkgs.playerctl}/bin/playerctl";
+  brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+  pactl = "${pkgs.pulseaudio}/bin/pactl";
+
 in {
   home.packages = with pkgs; [
     grim
@@ -75,6 +79,7 @@ in {
     xwayland = {
       enable = true;
     };
+    systemd.enable = true;
     settings = {
       "$mainMod" = "SUPER";
       monitor = [

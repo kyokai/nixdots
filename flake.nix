@@ -9,6 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+
+
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     waybar-hyprland.url = "github:hyprwm/hyprland";
     nur.url = "github:nix-community/NUR";
@@ -49,6 +51,7 @@
     # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
+    packages.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {inherit inputs;};
     # Nixpkgs instantiated for supported system types.
     nixpkgsFor = forAllSystems (system: import nixpkgs {inherit system;});
   in {
@@ -63,6 +66,7 @@
               hyprland
               disko
               ;
+	      asztal = self.packages.x86_64-linux.default;
           };
           modules = [
             ./hosts/redyf/configuration.nix
