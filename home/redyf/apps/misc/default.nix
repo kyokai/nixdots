@@ -20,12 +20,13 @@
     # Other stuff
     gh
     ollama
+    playerctl
+    # spotify
 
     # Rice
     # mako
-    # dunst # Notifications for your system
+    bemenu
     # cmatrix
-    yazi # Best TUI file manager
     nitrogen # Wallpaper utility for X11
     nwg-look # Change GTK theme
 
@@ -39,12 +40,11 @@
     # System Utils
     mpv
     glib
-    xclip
     unzip # Unzip files using the terminal
+    ffmpeg_6 # A complete, cross-platform solution to record, convert and stream audio and video
     tree-sitter # A parser generator tool and an incremental parsing library
     appimage-run # Run appimage files in the terminal
     polkit_gnome
-    dmenu
-    spotify
+    cinnamon.nemo
   ];
 }

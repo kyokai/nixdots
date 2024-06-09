@@ -1,8 +1,6 @@
 {
   pkgs,
   inputs,
-  config,
-  lib,
   ...
 }: let
   hyprlandFlake = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -17,10 +15,6 @@
   transparent_gray = "rgba(666666AA)";
   gsettings = "${pkgs.glib}/bin/gsettings";
   gnomeSchema = "org.gnome.desktop.interface";
-  playerctl = "${pkgs.playerctl}/bin/playerctl";
-  brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  pactl = "${pkgs.pulseaudio}/bin/pactl";
-
 in {
   home.packages = with pkgs; [
     grim
@@ -39,17 +33,20 @@ in {
       scripts=$config/scripts
 
       # Waybar
-      #pkill waybar
-      #$scripts/launch_waybar &
-      #$scripts/tools/dynamic &
+      pkill waybar
+      $scripts/launch_waybar &
+      $scripts/tools/dynamic &
+
+      # ags (bar and some extra stuff)
+      ags
 
       # Wallpaper
       swww kill
       swww init
 
-      # Dunst (Notifications)
-      pkill dunst
-      dunst &
+      # Mako (Notifications)
+      pkill mako
+      mako &
 
       # Cursor
       gsettings set org.gnome.desktop.interface cursor-theme macOS-BigSur
@@ -79,7 +76,6 @@ in {
     xwayland = {
       enable = true;
     };
-    systemd.enable = true;
     settings = {
       "$mainMod" = "SUPER";
       monitor = [
@@ -125,8 +121,8 @@ in {
         gaps_in = 2;
         gaps_out = 0;
         border_size = 0;
-        "col.active_border" = "${catppuccin_border}";
-        "col.inactive_border" = "${tokyonight_border}";
+        # "col.active_border" = "${catppuccin_border}";
+        # "col.inactive_border" = "${tokyonight_border}";
         layout = "dwindle";
         apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
       };
@@ -137,8 +133,8 @@ in {
         drop_shadow = false;
         shadow_range = 20;
         shadow_render_power = 3;
-        "col.shadow" = "rgb(${oxocarbon_background})";
-        "col.shadow_inactive" = "${background}";
+        # "col.shadow" = "rgb(${oxocarbon_background})";
+        # "col.shadow_inactive" = "${background}";
         blur = {
           enabled = true;
           size = 4;
@@ -151,9 +147,6 @@ in {
           xray = true;
         };
       };
-
-
-
 
       animations = {
         enabled = true;
@@ -207,15 +200,12 @@ in {
       };
 
       exec-once = [
-        #"ags -b hypr"
         "autostart"
         "easyeffects --gapplication-service" # Starts easyeffects in the background
         "importGsettings"
       ];
 
       bind = [
-        "SUPER, Tab, exec, ags -t overview"
-        "SUPER, XF86Calculator, exec, ags -r 'recorder.start()'"
         "SUPER,Q,killactive,"
         "SUPER,M,exit,"
         "SUPER,S,togglefloating,"
@@ -287,10 +277,10 @@ in {
         "SUPER,Print,exec,screenshot-edit"
         "SUPER,o,exec,obsidian"
         "SUPER SHIFT,C,exec,wallpaper"
-        #"SUPER,z,exec,waybar"
-        # "SUPER,space,exec,bemenu-run"
+        "SUPER,z,exec,waybar"
+        "SUPER,space,exec,bemenu-run"
         # "SUPER,space,exec, tofi-drun --drun-launch=true"
-        "SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3"
+        # "SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3"
       ];
 
       bindm = [

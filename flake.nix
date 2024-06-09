@@ -9,33 +9,31 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
-
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     waybar-hyprland.url = "github:hyprwm/hyprland";
     nur.url = "github:nix-community/NUR";
     Neve.url = "github:redyf/Neve";
     disko.url = "github:nix-community/disko";
-    ags = {
-      url = "github:Aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    stylix.url = "github:danth/stylix";
+    ags.url = "github:Aylur/ags";
+    matugen.url = "github:InioX/matugen?ref=v2.2.0";
 
-    matugen = {
-      url = "github:InioX/matugen";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    
     # SFMono w/ patches
     sf-mono-liga-src = {
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
       flake = false;
     };
 
-    monolisa-script = {
-      url = "github:redyf/test2";
-      flake = false;
-    };
+    # git+ssh://git@git.example.com/User/repo.git
+    # berkeley = {
+    #   url = "git+ssh://git@github.com/redyf/berkeley.git";
+    #   flake = false;
+    # };
+
+    # monolisa-script = {
+    #   url = "git+ssh://git@github.com/redyf/test2.git";
+    #   flake = false;
+    # };
   };
 
   outputs = {
@@ -44,6 +42,7 @@
     hyprland,
     home-manager,
     disko,
+    stylix,
     ...
   } @ inputs: let
     supportedSystems = ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"];
@@ -51,7 +50,7 @@
     # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-    packages.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {inherit inputs;};
+    #packages.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {inherit inputs;};
     # Nixpkgs instantiated for supported system types.
     nixpkgsFor = forAllSystems (system: import nixpkgs {inherit system;});
   in {
@@ -66,7 +65,7 @@
               hyprland
               disko
               ;
-	      asztal = self.packages.x86_64-linux.default;
+	      #asztal = self.packages.x86_64-linux.default;
           };
           modules = [
             ./hosts/redyf/configuration.nix
@@ -77,8 +76,10 @@
                 useGlobalPkgs = false;
                 extraSpecialArgs = {inherit inputs disko;};
                 users.redyf = ./home/redyf/home.nix;
+                backupFileExtension = "backup";
               };
             }
+            stylix.nixosModules.stylix
             hyprland.nixosModules.default
             disko.nixosModules.disko
           ];

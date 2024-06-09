@@ -1,69 +1,33 @@
 {
   inputs,
   pkgs,
-  lib,
-  config,
   ...
-}: let
-  requiredDeps = with pkgs; [
-    bash
-    brightnessctl
-    bun
-    config.wayland.windowManager.hyprland.package
-    coreutils
+}: {
+  # add the home manager module
+  imports = [inputs.ags.homeManagerModules.default];
+
+  home.packages = with pkgs; [
     dart-sass
-    fd
-    fzf
-    gawk
-    gtk3
-    hyprpicker
-    imagemagick
-    inputs.matugen.packages.${pkgs.system}.default
-    networkmanager
-    pavucontrol
-    ripgrep
-    slurp
-    swappy
-    swww
-    util-linux
+    brightnessctl
+    inputs.matugen.packages.${system}.default
+    wf-recorder
     wayshot
-    which
-    wl-clipboard
-    wl-screenrec
-    gtk3
+    hyprpicker
+    pavucontrol
+    pamixer
   ];
-
-  guiDeps = with pkgs; [
-    gnome.gnome-control-center
-  ];
-
-  dependencies = requiredDeps ++ guiDeps;
-
-  cfg = config.programs.ags;
-in {
-  imports = [
-    inputs.ags.homeManagerModules.default
-  ];
-
 
   programs.ags = {
     enable = true;
-    configDir = ../../../../../ags;
-  };
 
-  systemd.user.services.ags = {
-    Unit = {
-      Description = "Aylur's Gtk Shell";
-      PartOf = [
-        "tray.target"
-        "graphical-session.target"
-      ];
-    };
-    Service = {
-      Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
-      ExecStart = "${cfg.package}/bin/ags -c ${config.xdg.configHome}/ags/config.js";
-      Restart = "on-failure";
-    };
-    Install.WantedBy = ["graphical-session.target"];
+    # null or path, leave as null if you don't want hm to manage the config
+    configDir = ./config;
+
+    # additional packages to add to gjs's runtime
+    extraPackages = with pkgs; [
+      gtksourceview
+      webkitgtk
+      accountsservice
+    ];
   };
 }

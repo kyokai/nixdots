@@ -5,12 +5,13 @@
       font-awesome
       fira-code-symbols
       material-design-icons
-      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
+      (nerdfonts.override {fonts = ["JetBrainsMono"];})
       noto-fonts
       powerline-symbols
-      monolisa-script
+      # monolisa-script
+      # berkeley
       # sf-mono-liga-bin
-      # geist-font
+      # geist-mono
     ];
   };
 }

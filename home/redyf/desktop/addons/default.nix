@@ -1,14 +1,12 @@
 _: {
   imports = [
-    ./alacritty
-    #./bemenu
-    ./foot
-    ./kitty
-    ./rofi
-    ./swww
-    ./waybar
-    ./wofi
     ./ags
-    ./playerctl
+    ./kitty
+    ./swww
+    # ./waybar
+    # ./alacritty
+    # ./foot
+    # ./rofi
+    # ./wofi
   ];
 }

@@ -5,14 +5,14 @@
       enableZshIntegration = true;
       mode = "no-cursor";
     };
-    theme = "Catppuccin-Mocha";
-    font = {
-      name = "FiraCode Nerd Font";
-      # name = "JetBrainsMono Nerd Font";
-      # name = "MonoLisa";
-      # package = pkgs.monolisa-script;
-      size = 16;
-    };
+    # theme = "Tokyo Night";
+    # theme = "Catppuccin-Mocha";
+    # font = {
+    #   # name = "JetBrainsMono Nerd Font";
+    #   name = "MonoLisa";
+    #   package = pkgs.monolisa-script;
+    #   size = 11;
+    # };
     # https://www.monolisa.dev/faq#how-to-enable-stylistic-sets-for-the-kitty-terminal
     extraConfig = ''
       font_features MonoLisa -calt +liga +zero +ss01 +ss02 +ss07 +ss08 +ss10 +ss11 +ss18
@@ -30,7 +30,7 @@
       sync_to_monitor = "yes";
 
       # Background
-      background_opacity = "0.95";
+      # background_opacity = "1";
 
       # Cursor
       cursor_shape = "block";
@@ -90,8 +90,10 @@
       "ctrl+shift+c" = "copy_to_clipboard";
       "ctrl+shift+v" = "paste_from_clipboard";
       "ctrl+shift+s" = "paste_from_selection";
+      "ctrl+shift+e" = "open_url";
       "ctrl+shift+=" = "increase_font_size";
       "ctrl+shift+-" = "decrease_font_size";
+      "ctrl+shift+backspace" = "restore_font_size";
       "ctrl+shift+up" = "scroll_line_up";
       "ctrl+shift+k" = "scroll_line_up";
       "ctrl+shift+down" = "scroll_line_down";
@@ -102,8 +104,8 @@
       "ctrl+shift+[" = "previous_window";
       "ctrl+shift+right" = "next_tab";
       "ctrl+tab" = "next_tab";
-      "ctrl+shift+left" = "previous_tab";
       "ctrl+shift+tab" = "previous_tab";
+      "ctrl+shift+left" = "previous_tab";
       "ctrl+shift+t" = "new_tab";
       "ctrl+shift+q" = "close_tab";
     };
@@ -117,7 +119,7 @@
       #     "kitty/themes/lunar.conf".text = import ./lunar.nix;
       #     "kitty/themes/mocha.conf".text = import ./mocha.nix;
       #     "kitty/themes/macchiato.conf".text = import ./macchiato.nix;
-      "kitty/themes/custom-mocha.conf".text = import ./custom-mocha.nix;
+      # "kitty/themes/custom-mocha.conf".text = import ./custom-mocha.nix;
       #     "kitty/themes/tokyonight_night.conf".text = import ./tokyonight_night.nix;
       #     "kitty/themes/rose-pine.conf".text = import ./rose-pine.nix;
       #     "kitty/themes/oxocarbon-dark.conf".text = import ./oxocarbon.nix;
